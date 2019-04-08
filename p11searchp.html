@@ -10,9 +10,10 @@
         <script src="./js/validate.js"></script>
         <meta content="Launchpad by Anima" name="author">
         </meta>
+        <!-- <script src="./js/get_previous_pspecid.js"></script> -->
     </head>
-    <body style="margin: 0;
- background: rgba(249, 250, 251, 1.0);">
+
+    <body style="margin: 0;background: rgba(249, 250, 251, 1.0);">
         <input id="anPageName" name="page" type="hidden" value="p11searchp"/>
         <div class="p11searchp">
             <div style="width: 1440px; height: 100%; position:relative; margin:auto;">
@@ -72,14 +73,14 @@
                         <div class="searchby">
                             <div class="group5copy3">
                                 <div class="select_join" type="select">
-                                        
+
                                     <!-- <img type="select" anima-src="./img/c-1-1-search---c-textfield-1.png" class="textfield" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/> -->
                                         <select name="SelByAttribute" id="dropdown">
                                             <option>-- Select Criteria --</option>
                                             <option value="spec_id">Spec ID</option>
                                             <option value="mat_no">Material ID</option>
                                             <option value="mat_desc">Description</option>
-                                            
+
                                         </select>
                                     <!-- <div class="polarisiconminormonoselect">
                                         <img anima-src="./img/c-1-1-search---c-dropdown---material-id-polaris-iconminormonoselect@2x.png" class="polarisiconminormonoselect1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
@@ -97,6 +98,9 @@
             </div>
         </div>
         <!-- Scripts Animated-->
+        <!-- <script src='js/get_previous_pspecid.js'>
+
+        </script> -->
         <script>
             anima_isHidden = function(e) {
                 if (!(e instanceof HTMLElement)) return !1;
@@ -267,11 +271,11 @@
         <script type="text/javascript">
             function doSearch(){
                 jQuery.ajax({
-                    url: "https://hookb.in/2qYlbDYPOghDYDK6RK91",
+                    url: "https://peahub21.azurewebsites.net/api/v2.0/search/",
                     type: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        
+
                     },
                     contentType: "application/json",
                     data: JSON.stringify({
@@ -290,7 +294,7 @@
                 })
                 .fail(function(jqXHR, textStatus, errorThrown) {
                     console.log("HTTP Request Failed");
-                    
+
                 })
                 .always(function() {
                     /* ... */

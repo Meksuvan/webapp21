@@ -3,19 +3,19 @@ function doSearch(){
     document.getElementById("loader").style.display = "block";
 
     jQuery.ajax({
-        url: "https://hookb.in/2qYlbDYPOghDYDK6RK91",
+        url: "https://peahub21.azurewebsites.net/api/v2.0/search/",
         type: "POST",
         headers: {
             "Content-Type": "application/json",
-            
+
         },
         contentType: "application/json",
         data: JSON.stringify(
             {
-            "condition": {
+            // "condition": {
                 "search_by": document.getElementById("dropdown").value,
                 "search_text": document.getElementById("condition_str").value
-            }
+            // }
             })
     })
     .done(function(data, textStatus, jqXHR) {
@@ -31,7 +31,7 @@ function doSearch(){
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
-        
+
     })
     .always(function() {
         /* ... */

@@ -44,7 +44,7 @@ function doRegister(){
   //   // vender_status = document.getElementById("exampleFormControlSelect1").value;
   //   // vender_name = document.getElementById("CompNameid-input").value;
   //   vender_name = "LGE";
-   
+
 
   if (document.getElementById("textName").value == "") {
     alert("please enter name.");
@@ -90,15 +90,15 @@ function doRegister(){
     document.getElementById("textcompanyaddress").value.textContent = "";
 
   jQuery.ajax({
-  
+
     // url: "https://peahub21.azurewebsites.net/api/v2.0/register/",
-      url: "http://127.0.0.1:8000/api/v2.0/signup/",
+      url: "https://peahub21.azurewebsites.net/api/v2.0/signup/",
 
       type: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      
+
       data: JSON.stringify({
 
         "username" : document.getElementById("textUsermane").value,
@@ -115,7 +115,7 @@ function doRegister(){
         "address": document.getElementById("textcompanyaddress").value,
         // "location_lon": document.getElementById("lon").value,
         // "location_lat": document.getElementById("lat").value,
-        "location_lon": "14.567",
+        "location_lon": "104.5671111111567",
         "location_lat": "33.567",
         "comp_url" : "-",
         "comp_detail" : "-",

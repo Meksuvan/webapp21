@@ -1,3 +1,5 @@
+
+
 var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(1);
 var queries = queryString.split("&para");
@@ -7,18 +9,25 @@ postData(search_by, search_text);
 localStorage.setItem("search_by", search_by);
 localStorage.setItem("search_text", search_text);
 
+function init_page(){
+  console.log(search_by);
+  console.log(search_text);
+  postData(search_by, search_text);
+}
 
 function postData(sort, text){
+  console.log(sort);
+  console.log(text);
     let search_by = sort;
     let search_text = text;
 
     jQuery.ajax({
-       url: "http://127.0.0.1:8000/api/v2.0/search/",
-    //    url : "https://hookb.in/ggd1pb80KLsB0B1y81OG", 
+       url: "https://peahub21.azurewebsites.net/api/v2.0/search/",
+    //    url : "https://hookb.in/ggd1pb80KLsB0B1y81OG",
        type: "POST",
         headers: {
             "Content-Type": "application/json",
-            
+
         },
         contentType: "application/json",
         data: JSON.stringify(
@@ -27,14 +36,14 @@ function postData(sort, text){
                 "search_text": search_text
             })
     })
-    
+
 
     .done(function(data, textStatus, jqXHR) {
         console.log("HTTP Request Succeeded: " + jqXHR.status);
         console.log(data); //Return Data
         if (jqXHR.status == 200) {
             console.log(data)
-            
+
             console.log(data['result'])
             // window.localStorage.setItem('datasearch',JSON.stringify(data));
             var obj = data['result'];
@@ -86,7 +95,7 @@ function postData(sort, text){
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.log("HTTP Request Failed");
-        
+
     })
     .always(function() {
         /* ... */
